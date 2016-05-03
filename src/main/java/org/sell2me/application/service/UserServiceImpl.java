@@ -14,13 +14,22 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     @Override
+    public User getUserByUsername(String username) {
+        User user = userRepository.findByUsername(username);
+        if (user != null) {
+            return user;
+        }
+        return null;
+    }
+
+    @Override
     public User getUser(Long id) {
         return userRepository.findOne(id);
     }
 
     @Override
     public User findByName(String name) {
-        return userRepository.findByName(name);
+        return userRepository.findByFirstname(name);
     }
 
     @Override
@@ -31,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(User user) {
-        if (userRepository.findOne(user.getId()) != null) {
+        if (userRepository.findOne(user.getUserID()) != null) {
             userRepository.save(user);
             return user;
         }

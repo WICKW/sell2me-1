@@ -14,6 +14,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'spring-boot' 
 apply plugin: 'war'
@@ -37,8 +38,13 @@ configurations {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
+	compile(
+			'org.springframework.boot:spring-boot-starter-data-jpa',
+			'org.springframework.boot:spring-boot-starter-web',
+			'org.springframework.boot:spring-boot-starter-security',
+			'io.jsonwebtoken:jjwt:0.6.0'
+	)
+
 	runtime('mysql:mysql-connector-java')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
