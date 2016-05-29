@@ -43,9 +43,6 @@ public class AuthenticationController {
     public ResponseEntity<?> authenticationRequest(@RequestBody AuthenticationRequest authenticationRequest)
             throws AuthenticationException {
 
-        log.info("USERNAME : " + authenticationRequest.getUsername());
-        log.info("PASSWORD : " + authenticationRequest.getPassword());
-
         // Perform the authentication
         Authentication authentication = this.authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

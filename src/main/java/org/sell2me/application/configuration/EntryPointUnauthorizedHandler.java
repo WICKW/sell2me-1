@@ -18,6 +18,6 @@ public class EntryPointUnauthorizedHandler implements AuthenticationEntryPoint {
                          AuthenticationException authException)
             throws IOException, ServletException
     {
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Access Denied w");
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Access Denied 401. Please authorize!");
     }
 }

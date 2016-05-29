@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div ng-show="initialized">
+        <h1>hidden</h1>
+    </div>
+    <div ng-hide="initialized">
+        <h1>visible</h1>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>UserID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Username</th>
+                <th>Roles</th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>{{ user.userID }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.authorities }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <br><br>
+
+    <button type="button" ng-click="hctrl.getT()">Get users</button>
+
+    <br><br><br><br>
+
+    <p>{{ users }}</p>
+</div>
